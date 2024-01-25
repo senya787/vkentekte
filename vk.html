@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВКЕНТЕКТЕ - Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('http://royllent.ru/wp-content/uploads/2018/11/dedsec_2_0_generic_hacker_by_junguler-da61r89.gif');
+            background-size: cover;
+            background-position: center;
+            color: white; /* Set text color to white for better visibility on the dark background */
+        }
+
+        header {
+            background-color: #0077cc; /* Dark blue header */
+            color: white;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: rgba(49, 48, 48, 0.8); /* White form background with opacity */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #006699; /* Dark blue button */
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #003366; /* Darker blue footer */
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Additional styles for improved appearance */
+
+        .welcome-message {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #006699; /* Dark blue text */
+        }
+
+        .info-message {
+            color: #004080; /* Slightly lighter blue for informational messages */
+            margin-top: 5px;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Добро пожаловать на ВКЕНТЕКТЕ</h1>
+    </header>
+
+    <section>
+        <div class="welcome-message">
+            <p>Заполните форму для входа в ВКЕНТЕКТЕ</p>
+        </div>
+
+        <form onsubmit="registerUser(); return false;">
+            <label for="username">Имя пользователя (EN):</label>
+            <input type="text" id="username" name="username" required pattern="[a-zA-Z]+" title="Используйте только латинские буквы">
+
+            <div id="username-error" class="error-message"></div>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required pattern="[a-zA-Z]+" title="Используйте только английские буквы">
+
+            <div id="password-error" class="error-message"></div>
+
+            <button type="submit">Войти</button>
+        </form>
+
+        <div id="info-message" class="info-message"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ВКЕНТЕКТЕ. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function registerUser() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simple validation for demonstration purposes
+            if (username.length < 3) {
+                document.getElementById('username-error').innerText = 'Имя пользователя должно содержать не менее 3 символов.';
+                return;
+            } else {
+                document.getElementById('username-error').innerText = '';
+            }
+
+            if (!/^[a-zA-Z]+$/.test(username)) {
+                document.getElementById('username-error').innerText = 'Используйте только латинские буквы.';
+                return;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('password-error').innerText = 'Пароль должен содержать не менее 6 символов.';
+                return;
+            } else {
+                document.getElementById('password-error').innerText = '';
+            }
+
+            if (!/^[a-zA-Z]+$/.test(password)) {
+                document.getElementById('password-error').innerText = 'Используйте только английские буквы.';
+                return;
+            }
+
+            // If validation passes, you can perform further actions like sending data to a server
+            document.getElementById('info-message').innerText = 'Вход совершён успешно! Перенаправление...';
+            redirectToYouTube();
+        }
+
+        function redirectToYouTube() {
+            window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=pb5cj_5estHi9F4X';
+        }
+    </script>
+
+</body>
+</html>
+
